@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Mastercard Gateway — Demo Hub",
-  description: "Sales demo hub for Mastercard Gateway integration flows.",
+  title: "Demo Hub",
+  description: "Sales demo hub for integration flows.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

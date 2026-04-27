@@ -8,21 +8,12 @@ export default function HomePage() {
       {/* Header */}
       <header className="border-b border-neutral-200 bg-white">
         <div className="mx-auto max-w-6xl px-6 py-10">
-          <div className="flex items-center gap-3">
-            <svg width="44" height="28" viewBox="0 0 44 28" aria-hidden>
-              <circle cx="15" cy="14" r="13" fill="#EB001B" />
-              <circle cx="29" cy="14" r="13" fill="#F79E1B" fillOpacity="0.92" />
-            </svg>
-            <span className="text-xs font-medium uppercase tracking-widest text-neutral-500">
-              Mastercard Gateway
-            </span>
-          </div>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight text-neutral-900">
+          <h1 className="text-4xl font-semibold tracking-tight text-neutral-900">
             Demo Hub
           </h1>
           <p className="mt-2 max-w-2xl text-neutral-600">
-            A central launcher for Mastercard Gateway integration demos. Pick a flow below
-            and open it in a new tab to walk through the experience with the customer.
+            A central launcher for integration demos. Pick a flow below and open it in a
+            new tab to walk through the experience with the customer.
           </p>
           <p className="mt-4 text-sm text-neutral-500">
             {flowGroups.length} categories · {totalFlows} demos
@@ -95,12 +86,6 @@ export default function HomePage() {
         ))}
       </div>
 
-      {/* Footer */}
-      <footer className="border-t border-neutral-200 bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-6 text-xs text-neutral-500">
-          Internal sales demo hub · Not affiliated with Mastercard public properties.
-        </div>
-      </footer>
     </main>
   );
 }
