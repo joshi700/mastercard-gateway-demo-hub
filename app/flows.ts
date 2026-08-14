@@ -60,6 +60,11 @@ export const flowGroups: FlowGroup[] = [
         description: "Hosted Session 3DS flow with default configuration.",
         url: "https://frontend-jan25.vercel.app",
       },
+      {
+        title: "Click to Pay",
+        description: "Click to Pay secure remote commerce checkout demo.",
+        url: "https://click2pay-web.vercel.app",
+      },
     ],
   },
   {
