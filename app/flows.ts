@@ -1,8 +1,15 @@
+export type Guide = {
+  label: string;
+  url: string;
+};
+
 export type Flow = {
   title: string;
   description: string;
   url: string;
   inDevelopment?: boolean;
+  /** Help/implementation guides (.docx) served from /public/guides. */
+  guides?: Guide[];
 };
 
 export type FlowGroup = {
@@ -21,12 +28,21 @@ export const flowGroups: FlowGroup[] = [
         description:
           "Both Payment Page and Embedded flows in one demo. Toggle integration mode and options live.",
         url: "https://hco-config-payment-page-front-end.vercel.app",
+        guides: [
+          { label: "Card Payment", url: "/guides/card-payment-hco.docx" },
+          { label: "Google Pay", url: "/guides/google-pay-hco.docx" },
+          { label: "PayPal", url: "/guides/paypal-hco.docx" },
+          { label: "Click to Pay", url: "/guides/click-to-pay-hco.docx" },
+        ],
       },
       {
         title: "Embedded Checkout — Configurable",
         description:
           "Merchant-embedded checkout form with configurable session and display options.",
         url: "https://hco-configurable-embedded.vercel.app",
+        guides: [
+          { label: "Guide", url: "/guides/embedded-checkout-configurable.docx" },
+        ],
       },
       {
         title: "Payment Page",
@@ -64,6 +80,9 @@ export const flowGroups: FlowGroup[] = [
         title: "Click to Pay",
         description: "Click to Pay secure remote commerce checkout demo.",
         url: "https://click2pay-web.vercel.app",
+        guides: [
+          { label: "Guide", url: "/guides/click-to-pay-hosted-session.docx" },
+        ],
       },
     ],
   },

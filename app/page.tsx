@@ -39,13 +39,18 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {group.flows.map((flow) => (
-                <a
+                <div
                   key={flow.url}
-                  href={flow.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex flex-col rounded-xl border border-neutral-200 bg-white p-5 transition hover:border-neutral-900 hover:shadow-sm"
+                  className="group relative flex flex-col rounded-xl border border-neutral-200 bg-white p-5 transition hover:border-neutral-900 hover:shadow-sm"
                 >
+                  {/* Stretched link — clicking anywhere on the card (except the Guide button) opens the demo */}
+                  <a
+                    href={flow.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open ${flow.title} demo`}
+                    className="absolute inset-0 rounded-xl"
+                  />
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="text-base font-semibold text-neutral-900 group-hover:text-black">
                       {flow.title}
@@ -79,7 +84,42 @@ export default function HomePage() {
                       </svg>
                     </span>
                   </div>
-                </a>
+                  {flow.guides && flow.guides.length > 0 && (
+                    <div className="relative z-10 mt-4 border-t border-neutral-100 pt-3">
+                      <div className="mb-2 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-neutral-400">
+                        <svg
+                          width="13"
+                          height="13"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                        </svg>
+                        {flow.guides.length === 1 && flow.guides[0].label === "Guide"
+                          ? "Help Guide"
+                          : "Help Guides"}
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {flow.guides.map((g) => (
+                          <a
+                            key={g.url}
+                            href={g.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 rounded-lg border border-neutral-200 bg-neutral-50 px-2.5 py-1 text-xs font-medium text-neutral-700 transition hover:border-neutral-900 hover:text-black"
+                          >
+                            {g.label}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </section>
