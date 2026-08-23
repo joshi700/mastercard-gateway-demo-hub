@@ -84,6 +84,9 @@ export const flowGroups: FlowGroup[] = [
         title: "Hosted Session + 3DS",
         description: "Hosted Session 3DS flow with default configuration.",
         url: "https://frontend-jan25.vercel.app",
+        guides: [
+          { label: "Guide", url: "/guides/hosted-session-3ds.docx" },
+        ],
       },
       {
         title: "Click to Pay",
@@ -116,18 +119,6 @@ export const flowGroups: FlowGroup[] = [
         description:
           "Demonstrate cardholder-initiated and merchant-initiated transaction sequences.",
         url: "https://cit-mit.vercel.app",
-        inDevelopment: true,
-      },
-    ],
-  },
-  {
-    category: "Card Brand Services",
-    blurb: "Brand identification and card-level services.",
-    flows: [
-      {
-        title: "Card Brand Demo",
-        description: "Card brand identification and brand-specific service flows.",
-        url: "https://card-brand-demo.vercel.app",
         inDevelopment: true,
       },
     ],
