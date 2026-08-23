@@ -76,6 +76,9 @@ export const flowGroups: FlowGroup[] = [
         title: "Hosted Session + 3DS — Configurable",
         description: "Hosted Session integration with 3DS, fully configurable for demos.",
         url: "https://hosted-session-configurable-fronten.vercel.app/config",
+        guides: [
+          { label: "Guide", url: "/guides/hosted-session-3ds-configurable.docx" },
+        ],
       },
       {
         title: "Hosted Session + 3DS",
