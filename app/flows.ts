@@ -48,6 +48,9 @@ export const flowGroups: FlowGroup[] = [
         title: "Payment Page",
         description: "Standard hosted Payment Page redirect flow — no configuration UI.",
         url: "https://hosted-checkout-indol.vercel.app",
+        guides: [
+          { label: "Guide", url: "/guides/payment-page.docx" },
+        ],
       },
       {
         title: "Embedded Checkout",
