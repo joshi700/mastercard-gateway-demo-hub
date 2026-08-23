@@ -56,6 +56,9 @@ export const flowGroups: FlowGroup[] = [
         title: "Embedded Checkout",
         description: "Merchant-embedded checkout flow — fixed configuration.",
         url: "https://hosted-checkout-embedded-page.vercel.app",
+        guides: [
+          { label: "Guide", url: "/guides/embedded-page.docx" },
+        ],
       },
     ],
   },
