@@ -1,15 +1,21 @@
-export type Guide = {
+export type Resource = {
   label: string;
   url: string;
 };
 
+/** @deprecated use Resource */
+export type Guide = Resource;
+
 export type Flow = {
   title: string;
   description: string;
-  url: string;
+  /** Demo URL. Optional — video-only entries have no live demo. */
+  url?: string;
   inDevelopment?: boolean;
   /** Help/implementation guides (.docx) served from /public/guides. */
-  guides?: Guide[];
+  guides?: Resource[];
+  /** Integration video links (e.g. YouTube). */
+  videos?: Resource[];
 };
 
 export type FlowGroup = {
@@ -34,6 +40,9 @@ export const flowGroups: FlowGroup[] = [
           { label: "PayPal", url: "/guides/paypal-hco.docx" },
           { label: "Click to Pay", url: "/guides/click-to-pay-hco.docx" },
         ],
+        videos: [
+          { label: "HCO for iOS", url: "https://youtu.be/kbTHMvj35Fk" },
+        ],
       },
       {
         title: "Embedded Checkout — Configurable",
@@ -51,6 +60,9 @@ export const flowGroups: FlowGroup[] = [
         guides: [
           { label: "Guide", url: "/guides/payment-page.docx" },
         ],
+        videos: [
+          { label: "Video", url: "https://youtu.be/pmwqaiS2Fkg" },
+        ],
       },
       {
         title: "Embedded Checkout",
@@ -58,6 +70,9 @@ export const flowGroups: FlowGroup[] = [
         url: "https://hosted-checkout-embedded-page.vercel.app",
         guides: [
           { label: "Guide", url: "/guides/embedded-page.docx" },
+        ],
+        videos: [
+          { label: "Video", url: "https://youtu.be/Thj2DqOrLkg" },
         ],
       },
     ],
@@ -79,6 +94,9 @@ export const flowGroups: FlowGroup[] = [
         guides: [
           { label: "Guide", url: "/guides/hosted-session-3ds-configurable.docx" },
         ],
+        videos: [
+          { label: "Video", url: "https://youtu.be/kXeDaTCN-LE" },
+        ],
       },
       {
         title: "Hosted Session + 3DS",
@@ -87,6 +105,9 @@ export const flowGroups: FlowGroup[] = [
         guides: [
           { label: "Guide", url: "/guides/hosted-session-3ds.docx" },
         ],
+        videos: [
+          { label: "Video", url: "https://youtu.be/kXeDaTCN-LE" },
+        ],
       },
       {
         title: "Click to Pay",
@@ -94,6 +115,9 @@ export const flowGroups: FlowGroup[] = [
         url: "https://click2pay-web.vercel.app",
         guides: [
           { label: "Guide", url: "/guides/click-to-pay-hosted-session.docx" },
+        ],
+        videos: [
+          { label: "Video", url: "https://youtu.be/c1xk7B9d4i8" },
         ],
       },
     ],
@@ -120,6 +144,26 @@ export const flowGroups: FlowGroup[] = [
           "Demonstrate cardholder-initiated and merchant-initiated transaction sequences.",
         url: "https://cit-mit.vercel.app",
         inDevelopment: true,
+      },
+    ],
+  },
+  {
+    category: "Integration Videos",
+    blurb: "Walkthrough videos for integrations without a live demo here.",
+    flows: [
+      {
+        title: "Mobile SDK",
+        description: "Mobile SDK integration walkthrough.",
+        videos: [
+          { label: "Watch video", url: "https://youtu.be/z_E5GMLXu3k" },
+        ],
+      },
+      {
+        title: "Apple Pay — Hosted Session",
+        description: "Apple Pay for Hosted Session integration walkthrough.",
+        videos: [
+          { label: "Watch video", url: "https://youtu.be/xAFZuSDcmYU" },
+        ],
       },
     ],
   },
