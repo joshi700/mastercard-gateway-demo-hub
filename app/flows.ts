@@ -154,6 +154,7 @@ export const flowGroups: FlowGroup[] = [
       {
         title: "Mobile SDK",
         description: "Mobile SDK integration walkthrough.",
+        inDevelopment: true,
         videos: [
           { label: "Watch video", url: "https://youtu.be/z_E5GMLXu3k" },
         ],
@@ -161,6 +162,7 @@ export const flowGroups: FlowGroup[] = [
       {
         title: "Apple Pay — Hosted Session",
         description: "Apple Pay for Hosted Session integration walkthrough.",
+        inDevelopment: true,
         videos: [
           { label: "Watch video", url: "https://youtu.be/xAFZuSDcmYU" },
         ],
