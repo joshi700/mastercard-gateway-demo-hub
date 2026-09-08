@@ -66,7 +66,7 @@ export default function HomePage() {
                   <p className="mt-2 flex-1 text-sm text-neutral-600">{flow.description}</p>
                   {flow.url && (
                     <div className="mt-4 flex items-center">
-                      <span className="inline-flex items-center gap-1 text-sm font-medium text-neutral-900">
+                      <span className="inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 px-3 py-1.5 text-sm font-medium text-white transition group-hover:bg-black">
                         Open Demo
                         <svg
                           width="14"
