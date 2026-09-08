@@ -65,10 +65,7 @@ export default function HomePage() {
                   </div>
                   <p className="mt-2 flex-1 text-sm text-neutral-600">{flow.description}</p>
                   {flow.url && (
-                    <div className="mt-4 flex items-center justify-between">
-                      <span className="truncate text-xs text-neutral-400">
-                        {flow.url.replace(/^https?:\/\//, "")}
-                      </span>
+                    <div className="mt-4 flex items-center">
                       <span className="inline-flex items-center gap-1 text-sm font-medium text-neutral-900">
                         Open Demo
                         <svg
