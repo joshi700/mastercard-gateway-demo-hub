@@ -16,6 +16,8 @@ export type Flow = {
   guides?: Resource[];
   /** Integration video links (e.g. YouTube). */
   videos?: Resource[];
+  /** Postman collection/environment downloads served from /public/postman. */
+  postman?: Resource[];
 };
 
 export type FlowGroup = {
@@ -75,6 +77,15 @@ export const flowGroups: FlowGroup[] = [
           { label: "Video", url: "https://youtu.be/Thj2DqOrLkg" },
         ],
       },
+      {
+        title: "Postman Collection",
+        description:
+          "Ready-to-run Postman examples of the Gateway API operations. Import the collection and the Gateway environment, add your own MTF credentials, and run the requests.",
+        postman: [
+          { label: "Collection", url: "/postman/gateway-api-operations.postman_collection.json" },
+          { label: "Environment", url: "/postman/gateway-environment.postman_environment.json" },
+        ],
+      },
     ],
   },
   {
@@ -118,6 +129,15 @@ export const flowGroups: FlowGroup[] = [
         ],
         videos: [
           { label: "Video", url: "https://youtu.be/c1xk7B9d4i8" },
+        ],
+      },
+      {
+        title: "Postman Collection",
+        description:
+          "Ready-to-run Postman examples for the Hosted Session + 3DS flow (Create Session → Update → Initiate/Authenticate → Pay). Import the collection and the Gateway environment, add your own MTF credentials, and run the requests in order.",
+        postman: [
+          { label: "Collection", url: "/postman/hosted-session-3ds.postman_collection.json" },
+          { label: "Environment", url: "/postman/gateway-environment.postman_environment.json" },
         ],
       },
     ],

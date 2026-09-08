@@ -89,7 +89,8 @@ export default function HomePage() {
                     </div>
                   )}
                   {((flow.guides && flow.guides.length > 0) ||
-                    (flow.videos && flow.videos.length > 0)) && (
+                    (flow.videos && flow.videos.length > 0) ||
+                    (flow.postman && flow.postman.length > 0)) && (
                     <div className="relative z-10 mt-4 space-y-3 border-t border-neutral-100 pt-3">
                       {flow.guides && flow.guides.length > 0 && (
                         <div>
@@ -147,6 +148,53 @@ export default function HomePage() {
                                   <path d="M8 5v14l11-7z" />
                                 </svg>
                                 {v.label}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      {flow.postman && flow.postman.length > 0 && (
+                        <div>
+                          <div className="mb-2 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-neutral-400">
+                            <svg
+                              width="13"
+                              height="13"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                              <path d="M7 10l5 5 5-5" />
+                              <path d="M12 15V3" />
+                            </svg>
+                            Postman
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {flow.postman.map((p) => (
+                              <a
+                                key={p.url}
+                                href={p.url}
+                                download
+                                className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200 bg-orange-50 px-2.5 py-1 text-xs font-medium text-orange-700 transition hover:border-orange-600 hover:text-orange-800"
+                              >
+                                <svg
+                                  width="11"
+                                  height="11"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                >
+                                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                  <path d="M7 10l5 5 5-5" />
+                                  <path d="M12 15V3" />
+                                </svg>
+                                {p.label}
                               </a>
                             ))}
                           </div>

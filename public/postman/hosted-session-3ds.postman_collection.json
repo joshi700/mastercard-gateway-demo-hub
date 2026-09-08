@@ -1,0 +1,477 @@
+{
+  "info": {
+    "_postman_id": "24f7b2ad-1569-43b3-b4ff-81432baf8817",
+    "name": "Hosted_Session_3ds_Sept_26",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "15567758"
+  },
+  "item": [
+    {
+      "name": "Create Session",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let json = pm.response.json();\r",
+              "\r",
+              "\r",
+              "if (json.session && json.session.id) {\r",
+              "\r",
+              "    let sessionId = json.session.id;\r",
+              "\r",
+              "    postman.setEnvironmentVariable('sessionId', sessionId);\r",
+              "\r",
+              "}"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{apiPassword}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "merchant.{{merchantId}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"session\": {\r\n        \"authenticationLimit\": 25\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://{{host}}/api/rest/version/{{version}}/merchant/{{merchantId}}/session",
+          "protocol": "https",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "rest",
+            "version",
+            "{{version}}",
+            "merchant",
+            "{{merchantId}}",
+            "session"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Session",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let json = pm.response.json();\r",
+              "\r",
+              "\r",
+              "if (json.order && json.order.id) {\r",
+              "\r",
+              "    let orderId = json.order.id;\r",
+              "\r",
+              "    postman.setEnvironmentVariable('orderId', orderId);\r",
+              "\r",
+              "}"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "const chars = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\";",
+              "let orderId = \"\";",
+              "for (let i = 0; i < 16; i++) {",
+              "    orderId += chars.charAt(Math.floor(Math.random() * chars.length));",
+              "}",
+              "pm.environment.set(\"orderId\", orderId);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{apiPassword}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "merchant.{{merchantId}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"authentication\": {\r\n        \"redirectResponseUrl\": \"https://apitest.free.beeceptor.com\",\r\n        \"acceptVersions\": \"3DS1,3DS2\",\r\n        \"channel\": \"PAYER_BROWSER\",\r\n        \"purpose\": \"PAYMENT_TRANSACTION\"\r\n    },\r\n    \"device\": {\r\n        \"browser\": \"MOZILLA\",\r\n        \"browserDetails\": {\r\n            \"3DSecureChallengeWindowSize\": \"FULL_SCREEN\",\r\n            \"acceptHeaders\": \"application/json\",\r\n            \"colorDepth\": 24,\r\n            \"javaEnabled\": true,\r\n            \"language\": \"en-US\",\r\n            \"screenHeight\": 640,\r\n            \"screenWidth\": 480,\r\n            \"timeZone\": 273\r\n        },\r\n        \"ipAddress\": \"127.100.100.1\"\r\n    },\r\n    \"order\": {\r\n        \"amount\": 100.00,\r\n        \"currency\": \"USD\",\r\n        \"id\": \"{{orderId}}\",\r\n        \"reference\": \"OrderRefno1\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://{{host}}/api/rest/version/{{version}}/merchant/{{merchantId}}/session/{{sessionId}}",
+          "protocol": "https",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "rest",
+            "version",
+            "{{version}}",
+            "merchant",
+            "{{merchantId}}",
+            "session",
+            "{{sessionId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Retrieve Session",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const responseJson = pm.response.json();\r",
+              "\r",
+              "pm.test(\"Status code is 200 or 201\", () => {\r",
+              "    pm.expect(pm.response.code).to.be.oneOf([201,200])\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Update Status is SUCCESS\", () => {\r",
+              "    pm.expect(responseJson.session.updateStatus).to.eql(\"SUCCESS\")\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{apiPassword}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "merchant.{{merchantId}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://{{host}}/api/rest/version/{{version}}/merchant/{{merchantId}}/session/{{sessionId}}",
+          "protocol": "https",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "rest",
+            "version",
+            "{{version}}",
+            "merchant",
+            "{{merchantId}}",
+            "session",
+            "{{sessionId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Initiate Authentication",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "const chars = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\";",
+              "",
+              "function randomId(len) {",
+              "    let s = \"\";",
+              "    for (let i = 0; i < len; i++) {",
+              "        s += chars.charAt(Math.floor(Math.random() * chars.length));",
+              "    }",
+              "    return s;",
+              "}",
+              "",
+              "pm.environment.set(\"orderId\", randomId(16));",
+              "pm.environment.set(\"transactionID\", randomId(16));",
+              "",
+              "console.log(\"orderId:\", pm.environment.get(\"orderId\"),",
+              "            \"| transactionId:\", pm.environment.get(\"transactionID\"));"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{apiPassword}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "merchant.{{merchantId}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\r\n    \"apiOperation\": \"INITIATE_AUTHENTICATION\",\r\n\r\n    \"session\": {\r\n\r\n        \"id\": \"{{sessionId}}\"\r\n\r\n    },\r\n   \"order\":{  \r\n      \"currency\":\"{{currency}}\"\r\n   }\r\n\r\n\r\n\r\n}\r\n\r\n ",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://{{host}}/api/rest/version/{{version}}/merchant/{{merchantId}}/order/{{orderId}}/transaction/{{transactionID}}",
+          "protocol": "https",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "rest",
+            "version",
+            "{{version}}",
+            "merchant",
+            "{{merchantId}}",
+            "order",
+            "{{orderId}}",
+            "transaction",
+            "{{transactionID}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Authenticate Payer",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{apiPassword}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "merchant.{{merchantId}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"apiOperation\": \"AUTHENTICATE_PAYER\",\r\n    \"session\": {\r\n        \"id\": \"{{sessionId}}\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://{{host}}/api/rest/version/{{version}}/merchant/{{merchantId}}/order/{{orderId}}/transaction/{{transactionID}}",
+          "protocol": "https",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "rest",
+            "version",
+            "{{version}}",
+            "merchant",
+            "{{merchantId}}",
+            "order",
+            "{{orderId}}",
+            "transaction",
+            "{{transactionID}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Transaction Details",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{apiPassword}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "merchant.{{merchantId}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://{{host}}/api/rest/version/{{version}}/merchant/{{merchantId}}/order/{{orderId}}/transaction/{{transactionID}}",
+          "protocol": "https",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "rest",
+            "version",
+            "{{version}}",
+            "merchant",
+            "{{merchantId}}",
+            "order",
+            "{{orderId}}",
+            "transaction",
+            "{{transactionID}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PAY Transaction",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{apiPassword}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "merchant.{{merchantId}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"apiOperation\": \"PAY\",\r\n    \"authentication\": {\r\n        \"transactionId\": \"{{transactionID}}\"\r\n    },\r\n    \"transaction\": {\r\n        \"reference\": \"refno00132\"\r\n    },\r\n    \"session\": \r\n    {\r\n        \"id\": \"{{sessionId}}\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://{{host}}/api/rest/version/{{version}}/merchant/{{merchantId}}/order/{{orderId}}/transaction/{{transactionID}}",
+          "protocol": "https",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "api",
+            "rest",
+            "version",
+            "{{version}}",
+            "merchant",
+            "{{merchantId}}",
+            "order",
+            "{{orderId}}",
+            "transaction",
+            "{{transactionID}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
