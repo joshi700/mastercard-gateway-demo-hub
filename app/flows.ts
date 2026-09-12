@@ -163,6 +163,10 @@ export const flowGroups: FlowGroup[] = [
         description:
           "Cardholder-initiated and merchant-initiated sequences demonstrated through Hosted Checkout.",
         url: "https://hco-flows.vercel.app",
+        postman: [
+          { label: "Collection", url: "/postman/hosted-checkout-cit-mit.postman_collection.json" },
+          { label: "Environment", url: "/postman/gateway-environment.postman_environment.json" },
+        ],
       },
     ],
   },
