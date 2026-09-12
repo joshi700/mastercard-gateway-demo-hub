@@ -165,6 +165,12 @@ export const flowGroups: FlowGroup[] = [
         url: "https://cit-mit.vercel.app",
         inDevelopment: true,
       },
+      {
+        title: "CIT / MIT — Hosted Checkout Flows",
+        description:
+          "Cardholder-initiated and merchant-initiated sequences demonstrated through Hosted Checkout.",
+        url: "https://hco-flows.vercel.app",
+      },
     ],
   },
   {
