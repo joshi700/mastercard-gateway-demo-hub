@@ -163,6 +163,11 @@ export const flowGroups: FlowGroup[] = [
         description:
           "Cardholder-initiated and merchant-initiated sequences demonstrated through Hosted Checkout.",
         url: "https://hco-flows.vercel.app",
+        guides: [
+          { label: "Flow 1 — Save a card", url: "/guides/cit-mit-save-a-card.docx" },
+          { label: "Flow 2 — Pay with the token", url: "/guides/cit-mit-pay-with-token.docx" },
+          { label: "Flow 3 — Recurring agreement", url: "/guides/cit-mit-recurring-agreement.docx" },
+        ],
         postman: [
           { label: "Collection", url: "/postman/hosted-checkout-cit-mit.postman_collection.json" },
           { label: "Environment", url: "/postman/gateway-environment.postman_environment.json" },

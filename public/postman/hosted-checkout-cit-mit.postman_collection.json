@@ -219,7 +219,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"apiOperation\": \"INITIATE_CHECKOUT\",\n  \"interaction\": {\n    \"operation\": \"AUTHORIZE\",\n    \"merchant\": {\n      \"name\": \"{{merchantName}}\",\n      \"url\": \"{{merchantUrl}}\"\n    },\n    \"displayControl\": {\n      \"billingAddress\": \"HIDE\",\n      \"customerEmail\": \"HIDE\"\n    },\n    \"timeoutUrl\": \"{{merchantUrl}}\",\n    \"cancelUrl\": \"{{merchantUrl}}\",\n    \"returnUrl\": \"{{merchantUrl}}\",\n    \"tokens\": [\n      \"{{cardToken}}\"\n    ]\n  },\n  \"order\": {\n    \"id\": \"{{orderId}}\",\n    \"amount\": \"{{amount}}\",\n    \"currency\": \"{{currency}}\",\n    \"description\": \"Cardholder-initiated payment using a saved token\"\n  }\n}",
+              "raw": "{\n  \"apiOperation\": \"INITIATE_CHECKOUT\",\n  \"interaction\": {\n    \"operation\": \"PURCHASE\",\n    \"merchant\": {\n      \"name\": \"{{merchantName}}\",\n      \"url\": \"{{merchantUrl}}\"\n    },\n    \"displayControl\": {\n      \"billingAddress\": \"HIDE\",\n      \"customerEmail\": \"HIDE\"\n    },\n    \"timeoutUrl\": \"{{merchantUrl}}\",\n    \"cancelUrl\": \"{{merchantUrl}}\",\n    \"returnUrl\": \"{{merchantUrl}}\",\n    \"tokens\": [\n      \"{{cardToken}}\"\n    ]\n  },\n  \"order\": {\n    \"id\": \"{{orderId}}\",\n    \"amount\": \"{{amount}}\",\n    \"currency\": \"{{currency}}\",\n    \"description\": \"Cardholder-initiated payment using a saved token\"\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
