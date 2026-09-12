@@ -159,13 +159,6 @@ export const flowGroups: FlowGroup[] = [
     blurb: "Cardholder-initiated and merchant-initiated transaction patterns.",
     flows: [
       {
-        title: "CIT / MIT Transactions",
-        description:
-          "Demonstrate cardholder-initiated and merchant-initiated transaction sequences.",
-        url: "https://cit-mit.vercel.app",
-        inDevelopment: true,
-      },
-      {
         title: "CIT / MIT — Hosted Checkout Flows",
         description:
           "Cardholder-initiated and merchant-initiated sequences demonstrated through Hosted Checkout.",
