@@ -143,25 +143,14 @@ export const flowGroups: FlowGroup[] = [
     ],
   },
   {
-    category: "Tokenization",
-    blurb: "Network and gateway tokenization flows.",
-    flows: [
-      {
-        title: "Tokenization Lab",
-        description: "Tokenization scenarios and token lifecycle demos.",
-        url: "https://tokenization-lab.vercel.app",
-        inDevelopment: true,
-      },
-    ],
-  },
-  {
     category: "CIT / MIT",
-    blurb: "Cardholder-initiated and merchant-initiated transaction patterns.",
+    blurb:
+      "Credential on File end to end — tokenize a card, spend the token, then let the merchant bill it on a recurring agreement.",
     flows: [
       {
-        title: "CIT / MIT — Hosted Checkout Flows",
+        title: "CIT / MIT — Credential on File, three flows",
         description:
-          "Cardholder-initiated and merchant-initiated sequences demonstrated through Hosted Checkout.",
+          "One demo covering three linked flows. Flow 1 saves a card through Hosted Checkout and returns a token; flow 2 charges that saved token with nothing to re-enter; flow 3 registers a recurring agreement whose first payment is cardholder-initiated and whose later charges are merchant-initiated. A guide and a Postman folder for each.",
         url: "https://hco-flows.vercel.app",
         guides: [
           { label: "Flow 1 — Save a card", url: "/guides/cit-mit-save-a-card.docx" },
