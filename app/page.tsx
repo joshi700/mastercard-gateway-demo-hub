@@ -33,7 +33,8 @@ export default function HomePage() {
                 <p className="mt-1 text-sm text-neutral-600">{group.blurb}</p>
               </div>
               <span className="text-sm text-neutral-400">
-                {group.flows.length} demo{group.flows.length === 1 ? "" : "s"}
+                {group.countLabel ??
+                  `${group.flows.length} demo${group.flows.length === 1 ? "" : "s"}`}
               </span>
             </div>
 
@@ -63,7 +64,24 @@ export default function HomePage() {
                       </span>
                     )}
                   </div>
-                  <p className="mt-2 flex-1 text-sm text-neutral-600">{flow.description}</p>
+                  <div className="flex-1">
+                    <p className="mt-2 text-sm text-neutral-600">{flow.description}</p>
+                    {flow.steps && flow.steps.length > 0 && (
+                      <ol className="mt-3 space-y-1.5">
+                        {flow.steps.map((step, i) => (
+                          <li
+                            key={step}
+                            className="flex items-start gap-2 text-sm text-neutral-700"
+                          >
+                            <span className="mt-px flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-[11px] font-semibold text-neutral-600">
+                              {i + 1}
+                            </span>
+                            {step}
+                          </li>
+                        ))}
+                      </ol>
+                    )}
+                  </div>
                   {flow.url && (
                     <div className="mt-4 flex items-center">
                       <span className="inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 px-3 py-1.5 text-sm font-medium text-white transition group-hover:bg-black">

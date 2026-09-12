@@ -11,6 +11,8 @@ export type Flow = {
   description: string;
   /** Demo URL. Optional — video-only entries have no live demo. */
   url?: string;
+  /** Short labels for the steps a multi-flow demo walks through. */
+  steps?: string[];
   inDevelopment?: boolean;
   /** Help/implementation guides (.docx) served from /public/guides. */
   guides?: Resource[];
@@ -23,6 +25,8 @@ export type Flow = {
 export type FlowGroup = {
   category: string;
   blurb: string;
+  /** Overrides the "N demos" count, e.g. when one demo contains several flows. */
+  countLabel?: string;
   flows: Flow[];
 };
 
@@ -144,18 +148,23 @@ export const flowGroups: FlowGroup[] = [
   },
   {
     category: "CIT / MIT",
-    blurb:
-      "Credential on File end to end — tokenize a card, spend the token, then let the merchant bill it on a recurring agreement.",
+    blurb: "Tokenize a card, spend the token, bill it on a recurring agreement.",
+    countLabel: "3 flows",
     flows: [
       {
-        title: "CIT / MIT — Credential on File, three flows",
+        title: "CIT / MIT — Credential on File",
         description:
-          "One demo covering three linked flows. Flow 1 saves a card through Hosted Checkout and returns a token; flow 2 charges that saved token with nothing to re-enter; flow 3 registers a recurring agreement whose first payment is cardholder-initiated and whose later charges are merchant-initiated. A guide and a Postman folder for each.",
+          "Three linked flows in one demo. The token from flow 1 carries through the next two.",
         url: "https://hco-flows.vercel.app",
+        steps: [
+          "Save a card, get a token",
+          "Pay with the saved token",
+          "Recurring agreement — CIT then MIT",
+        ],
         guides: [
-          { label: "Flow 1 — Save a card", url: "/guides/cit-mit-save-a-card.docx" },
-          { label: "Flow 2 — Pay with the token", url: "/guides/cit-mit-pay-with-token.docx" },
-          { label: "Flow 3 — Recurring agreement", url: "/guides/cit-mit-recurring-agreement.docx" },
+          { label: "Flow 1", url: "/guides/cit-mit-save-a-card.docx" },
+          { label: "Flow 2", url: "/guides/cit-mit-pay-with-token.docx" },
+          { label: "Flow 3", url: "/guides/cit-mit-recurring-agreement.docx" },
         ],
         postman: [
           { label: "Collection", url: "/postman/hosted-checkout-cit-mit.postman_collection.json" },
