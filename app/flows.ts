@@ -149,22 +149,28 @@ export const flowGroups: FlowGroup[] = [
   {
     category: "CIT / MIT",
     blurb: "Tokenize a card, spend the token, bill it on a recurring agreement.",
-    countLabel: "3 flows",
+    countLabel: "4 flows",
     flows: [
       {
         title: "CIT / MIT — Credential on File",
         description:
-          "Three linked flows in one demo. The token from flow 1 carries through the next two.",
+          "Four linked flows in one demo. The token from flow 1 carries through the rest.",
         url: "https://hco-flows.vercel.app",
         steps: [
           "Save a card, get a token",
           "Pay with the saved token",
-          "Recurring agreement — CIT then MIT",
+          "Recurring agreement (CIT)",
+          "Merchant-initiated charge (MIT)",
         ],
         guides: [
           { label: "Flow 1", url: "/guides/cit-mit-save-a-card.docx" },
           { label: "Flow 2", url: "/guides/cit-mit-pay-with-token.docx" },
           { label: "Flow 3", url: "/guides/cit-mit-recurring-agreement.docx" },
+        ],
+        videos: [
+          { label: "Credential on File", url: "https://youtu.be/AvYagGbaI8c" },
+          { label: "Pay with Tokens", url: "https://youtu.be/XCL_yW7N_9s" },
+          { label: "Recurring CIT / MIT", url: "https://youtu.be/2hqDCz7nEGY" },
         ],
         postman: [
           { label: "Collection", url: "/postman/hosted-checkout-cit-mit.postman_collection.json" },
