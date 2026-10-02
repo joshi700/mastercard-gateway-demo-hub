@@ -224,6 +224,12 @@ export default function HomePage() {
         ))}
       </div>
 
+      <footer className="border-t border-neutral-200 bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-8 text-sm text-neutral-500">
+          For any queries, reach out to{" "}
+          <span className="font-medium text-neutral-800">Gaurav Joshi</span>.
+        </div>
+      </footer>
     </main>
   );
 }
