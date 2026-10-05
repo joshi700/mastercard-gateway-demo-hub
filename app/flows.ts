@@ -193,6 +193,38 @@ export const flowGroups: FlowGroup[] = [
     ],
   },
   {
+    category: "Fraud & Optimisation",
+    blurb: "Score card-not-present payments before authorisation, and recover failed recurring charges.",
+    flows: [
+      {
+        title: "Briterion — CNP Fraud Decisioning",
+        description:
+          "Mock e-commerce checkout next to a live risk console. Pick a pre-populated shopper, pay, and watch the rules fire. Edit rules and thresholds on the fly.",
+        url: "https://briterion-demo.vercel.app",
+        steps: [
+          "Happy path: approve",
+          "Step-up: 3DS challenge",
+          "Negative path: decline",
+          "Block-listed card",
+        ],
+        inDevelopment: true,
+      },
+      {
+        title: "POP — Payment Optimisation",
+        description:
+          "A recurring MIT declines. The merchant puts the cardholder on a POP watch list, gets a webhook when a retry is likely to approve, and recovers the payment with one click.",
+        url: "https://pop-demo-delta.vercel.app",
+        steps: [
+          "Recurring charge declines",
+          "Add to POP watch list",
+          "Webhook: retry window open",
+          "Try it now: MIT retry approved",
+        ],
+        inDevelopment: true,
+      },
+    ],
+  },
+  {
     category: "Integration Videos",
     blurb: "Walkthrough videos for integrations without a live demo here.",
     flows: [
