@@ -197,7 +197,7 @@ export const flowGroups: FlowGroup[] = [
     blurb: "Score card-not-present payments before authorisation, and recover failed recurring charges.",
     flows: [
       {
-        title: "Briterion — CNP Fraud Decisioning",
+        title: "Brighterion — CNP Fraud Decisioning",
         description:
           "Mock e-commerce checkout next to a live risk console. Pick a pre-populated shopper, pay, and watch the rules fire. Edit rules and thresholds on the fly.",
         url: "https://briterion-demo.vercel.app",
