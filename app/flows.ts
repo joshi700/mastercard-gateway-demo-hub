@@ -200,7 +200,7 @@ export const flowGroups: FlowGroup[] = [
         title: "Brighterion — CNP Fraud Decisioning",
         description:
           "Mock e-commerce checkout next to a live risk console. Pick a pre-populated shopper, pay, and watch the rules fire. Edit rules and thresholds on the fly.",
-        url: "https://briterion-demo.vercel.app",
+        url: "https://brighterion-demo.vercel.app",
         steps: [
           "Happy path: approve",
           "Step-up: 3DS challenge",
