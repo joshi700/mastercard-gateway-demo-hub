@@ -225,6 +225,25 @@ export const flowGroups: FlowGroup[] = [
     ],
   },
   {
+    category: "Account Updater",
+    blurb: "Keep stored cards current: find cards to check, request updates, apply the results.",
+    flows: [
+      {
+        title: "Account Updater — Merchant & Partner",
+        description:
+          "Simulation-only walkthrough with fictional data. Pick a guided scenario or explore from the merchant or acquirer view.",
+        url: "https://account-updater-demo.vercel.app",
+        steps: [
+          "Identify eligible stored cards",
+          "Submit an individual or batch request",
+          "See each card's outcome",
+          "Review and apply updates, then report",
+        ],
+        inDevelopment: true,
+      },
+    ],
+  },
+  {
     category: "Integration Videos",
     blurb: "Walkthrough videos for integrations without a live demo here.",
     flows: [
