@@ -14,6 +14,8 @@ export type Flow = {
   /** Short labels for the steps a multi-flow demo walks through. */
   steps?: string[];
   inDevelopment?: boolean;
+  /** Static walkthrough with fictional data — no live gateway calls. */
+  simulated?: boolean;
   /** Demo uses the TechGear storefront design (shown as a badge on the tile). */
   techgear?: boolean;
   /** Help/implementation guides (.docx) served from /public/guides. */
@@ -213,7 +215,7 @@ export const flowGroups: FlowGroup[] = [
           "Negative path: decline",
           "Block-listed card",
         ],
-        inDevelopment: true,
+        simulated: true,
       },
       {
         title: "POP — Payment Optimisation",
@@ -226,7 +228,7 @@ export const flowGroups: FlowGroup[] = [
           "Webhook: retry window open",
           "Try it now: MIT retry approved",
         ],
-        inDevelopment: true,
+        simulated: true,
       },
     ],
   },
@@ -245,7 +247,7 @@ export const flowGroups: FlowGroup[] = [
           "See each card's outcome",
           "Review and apply updates, then report",
         ],
-        inDevelopment: true,
+        simulated: true,
       },
     ],
   },
