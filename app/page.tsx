@@ -58,7 +58,7 @@ export default function HomePage() {
                     <h3 className="text-base font-semibold text-neutral-900 group-hover:text-black">
                       {flow.title}
                     </h3>
-                    {(flow.inDevelopment || flow.techgear) && (
+                    {(flow.inDevelopment || flow.techgear || flow.simulated) && (
                       <div className="flex shrink-0 flex-col items-end gap-1">
                         {flow.techgear && (
                           <span
@@ -66,6 +66,14 @@ export default function HomePage() {
                             className="rounded-full bg-[#1e4d3b] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white"
                           >
                             TechGear design
+                          </span>
+                        )}
+                        {flow.simulated && (
+                          <span
+                            title="Static walkthrough with fictional data — no live gateway calls"
+                            className="rounded-full bg-sky-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-sky-800"
+                          >
+                            Simulated
                           </span>
                         )}
                         {flow.inDevelopment && (
