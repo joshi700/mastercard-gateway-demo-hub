@@ -14,6 +14,8 @@ export type Flow = {
   /** Short labels for the steps a multi-flow demo walks through. */
   steps?: string[];
   inDevelopment?: boolean;
+  /** Demo uses the TechGear storefront design (shown as a badge on the tile). */
+  techgear?: boolean;
   /** Help/implementation guides (.docx) served from /public/guides. */
   guides?: Resource[];
   /** Integration video links (e.g. YouTube). */
@@ -63,6 +65,7 @@ export const flowGroups: FlowGroup[] = [
         title: "Payment Page",
         description: "Standard hosted Payment Page redirect flow — no configuration UI.",
         url: "https://hosted-checkout-indol.vercel.app",
+        techgear: true,
         guides: [
           { label: "Guide", url: "/guides/payment-page.docx" },
         ],
@@ -74,6 +77,7 @@ export const flowGroups: FlowGroup[] = [
         title: "Embedded Checkout",
         description: "Merchant-embedded checkout flow — fixed configuration.",
         url: "https://hosted-checkout-embedded-page.vercel.app",
+        techgear: true,
         guides: [
           { label: "Guide", url: "/guides/embedded-page.docx" },
         ],
@@ -117,6 +121,7 @@ export const flowGroups: FlowGroup[] = [
         title: "Hosted Session + 3DS",
         description: "Hosted Session 3DS flow with default configuration.",
         url: "https://frontend-jan25.vercel.app",
+        techgear: true,
         guides: [
           { label: "Guide", url: "/guides/hosted-session-3ds.docx" },
         ],
@@ -128,6 +133,7 @@ export const flowGroups: FlowGroup[] = [
         title: "Click to Pay",
         description: "Click to Pay secure remote commerce checkout demo.",
         url: "https://click2pay-web.vercel.app",
+        techgear: true,
         guides: [
           { label: "Guide", url: "/guides/click-to-pay-hosted-session.docx" },
         ],

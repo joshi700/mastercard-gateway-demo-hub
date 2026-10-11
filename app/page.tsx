@@ -58,10 +58,22 @@ export default function HomePage() {
                     <h3 className="text-base font-semibold text-neutral-900 group-hover:text-black">
                       {flow.title}
                     </h3>
-                    {flow.inDevelopment && (
-                      <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-amber-800">
-                        In Development
-                      </span>
+                    {(flow.inDevelopment || flow.techgear) && (
+                      <div className="flex shrink-0 flex-col items-end gap-1">
+                        {flow.techgear && (
+                          <span
+                            title="Runs in the TechGear demo storefront"
+                            className="rounded-full bg-[#1e4d3b] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white"
+                          >
+                            TechGear design
+                          </span>
+                        )}
+                        {flow.inDevelopment && (
+                          <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-amber-800">
+                            In Development
+                          </span>
+                        )}
+                      </div>
                     )}
                   </div>
                   <div className="flex-1">
